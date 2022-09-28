@@ -14,10 +14,10 @@ int width = EnterInt("Enter width: ");
 int[,] numbers = new int[height, width];
 Fill2DArray(numbers, height, width);
 Print2DArray(numbers, height, width);
-int i = EnterInt("Enter i: ");
-int j = EnterInt("Enter j: ");
+int row = EnterInt("Enter row: ");
+int column = EnterInt("Enter column: ");
 
-FindElement(numbers, height, width, i, j);
+FindElement(numbers, row, column);
 
 int EnterInt(string prompt)
 {
@@ -48,9 +48,9 @@ void Print2DArray(int[,] numbers, int height, int width)
     }
 }
 
-void FindElement(int[,] numbers, int height, int width, int i, int j)
+void FindElement(int[,] numbers, int row, int column)
 {
-    if (i >= height || j >= width)
-        Console.WriteLine("Такого элемента в массиве нет");
-    else Console.WriteLine(numbers[i, j]);
+    if (row < numbers.GetLength(0) && column < numbers.GetLength(1))
+        Console.WriteLine(numbers[row, column]);
+    else Console.WriteLine("Такого элемента в массиве нет");
 }
