@@ -7,45 +7,44 @@
 
 // 1 7 -> такого числа в массиве нет
 
+int[,] numbers = new int[4, 4];
 
-int height = EnterInt("Enter height: ");
-int width = EnterInt("Enter width: ");
+Fill2DArray(numbers);
+Print2DArray(numbers);
 
-int[,] numbers = new int[height, width];
-Fill2DArray(numbers, height, width);
-Print2DArray(numbers, height, width);
-int row = EnterInt("Enter row: ");
-int column = EnterInt("Enter column: ");
+int IndexRow = EnterInt("Enter row: ");
+int IndexColumn = EnterInt("Enter column: ");
 
-FindElement(numbers, row, column);
+FindElement(numbers, IndexRow, IndexColumn);
 
-int EnterInt(string prompt)
+
+void Fill2DArray(int[,] numbers)
 {
-    Console.Write(prompt);
-    return int.Parse(Console.ReadLine()!);
-}
-
-void Fill2DArray(int[,] numbers, int height, int width)
-{
-    for (int i = 0; i < height; i++)
+    for (int i = 0; i < numbers.GetLength(0); i++)
     {
-        for (int j = 0; j < width; j++)
+        for (int j = 0; j < numbers.GetLength(1); j++)
         {
             numbers[i, j] = new Random().Next(-10, 11);
         }
     }
 }
 
-void Print2DArray(int[,] numbers, int height, int width)
+void Print2DArray(int[,] numbers)
 {
-    for (int i = 0; i < height; i++)
+    for (int i = 0; i < numbers.GetLength(0); i++)
     {
-        for (int j = 0; j < width; j++)
+        for (int j = 0; j < numbers.GetLength(1); j++)
         {
             Console.Write($"{numbers[i, j],3} ");
         }
         Console.WriteLine();
     }
+}
+
+int EnterInt(string prompt)
+{
+    Console.Write(prompt);
+    return int.Parse(Console.ReadLine()!);
 }
 
 void FindElement(int[,] numbers, int row, int column)
