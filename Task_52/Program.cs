@@ -6,7 +6,7 @@
 
 // Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
 
-int[,] numbers = new int[4, 4];
+int[,] numbers = new int[5, 4];
 
 Fill2DArray(numbers);
 Print2DArray(numbers);
