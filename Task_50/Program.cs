@@ -49,7 +49,7 @@ int EnterInt(string prompt)
 
 void FindElement(int[,] numbers, int row, int column)
 {
-    if (row < numbers.GetLength(0) && column < numbers.GetLength(1))
-        Console.WriteLine(numbers[row, column]);
+    if ( row-1 < numbers.GetLength(0) && row > 0 && column-1 < numbers.GetLength(1) && column >0)
+        Console.WriteLine(numbers[row-1, column-1]);
     else Console.WriteLine("Такого элемента в массиве нет");
 }
